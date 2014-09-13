@@ -8,7 +8,7 @@ var particulePool=new (function(){
 			type : type,
 			t : Math.abs( fromx - tox ) + Math.abs( fromy - toy ),
 			v : 0.2,
-			hh : 0.3,
+			hh : type[0] == 'f' ? 5 : 0.2,
 			a : 0,
 			fromx: fromx,
 			fromy: fromy,
@@ -38,7 +38,7 @@ var particulePool=new (function(){
 
 			var kk = Math.abs(0.5-k)*2
 
-			p.h = p.fromh * (1-k) + p.toh * k  + (1-kk*kk) * 5
+			p.h = p.fromh * (1-k) + p.toh * k  + (1-kk*kk) * p.hh
 
 
 

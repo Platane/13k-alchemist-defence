@@ -20,9 +20,23 @@ var towerPicker = new (function(canvas){
 		document.removeEventListener('mouseup',mouseup,false)
 
 		if( lastHover ){
-			towerPool.addTower(lastHover.x,lastHover.y,currentDrag)
 
 			map.get(lastHover.x , lastHover.y).hover = false
+
+			if( map.get( lastHover.x,lastHover.y ).h <= 1 )
+				return
+
+			// test if there is already a tower
+			var cell = map.get( lastHover.x,lastHover.y )
+			if( cell.tower ){
+				// yes , try to upgrade
+				var newType = ( cell.tower.type + currentDrag ).split('').sort().join('')
+				if( dataTower[ newType ] )
+					cell.tower.type = newType
+			}else
+				// nop place one
+				towerPool.addTower(lastHover.x,lastHover.y,currentDrag)
+
 		}
 		
 	}
@@ -39,12 +53,8 @@ var towerPicker = new (function(canvas){
 	}
 
 	this.init = function( dataElement ){
-		var html = '<ul>'
-		for(var i in dataElement ){
-			html+='<li data-i="'+i+'">'+i+'</li>'
-		}
-		html+='</ul>'
-		menu.innerHTML = html
+
+		menu.innerHTML = '<ul><li data-i="f" style="background:#DD5616">fire</li><li data-i="e" style="background:#94330D">earth</li></ul>'
 
 		var lis = menu.querySelectorAll('li')
 		for( var i = lis.length;i--;)

@@ -21,22 +21,26 @@ var s = [
 ].join('')
 
 
+var launch = function(){
 
-map.copyFrom( s )
+	document.getElementById('canvas').style.display = 'block'
 
-renderer.render()
+	map.copyFrom( s )
 
-towerPicker.init( dataTower )
+	renderer.render()
+
+	towerPicker.init( dataTower )
 
 
-var t = 0;
+	var t = 0;
 
-;(function cycle(){
-	
-	spartanPool.tick( t++ )
-	towerPool.tick( t )
-	particulePool.tick( t )
+	;(function cycle(){
+		
+		spartanPool.tick( t++ )
+		towerPool.tick( t )
+		particulePool.tick( t )
 
-	renderer.render( t )
-	requestAnimationFrame( cycle )
-})()
+		renderer.render( t )
+		requestAnimationFrame( cycle )
+	})()
+}

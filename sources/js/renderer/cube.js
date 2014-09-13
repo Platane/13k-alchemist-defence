@@ -97,7 +97,7 @@ renderer.renderCube = function(x,y,h,z){
 	this.ctx.stroke()
 
 	if( map.get(x,y).hover ){
-		this.ctx.fillStyle= h > 0.4 ? 'rgb(233, 202, 37)' : 'rgb(12,123,200)'
+		this.ctx.fillStyle= h <= 1 ? 'rgb(163, 60, 28)' : 'rgb(12,123,200)'
 		this.ctx.beginPath()
 		this.poly( faces[0] )
 		this.ctx.fill()

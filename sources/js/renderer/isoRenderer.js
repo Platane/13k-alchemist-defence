@@ -31,7 +31,7 @@ var renderer = new (function( canvas ){
 		shakeLvl
 	this.shake = function( level ){
 		shakeLvl = level
-		tShake = 30
+		tShake = 25
 	}
 
 	this.render = function( t ){
@@ -101,7 +101,7 @@ var renderer = new (function( canvas ){
 		// fill with particules
 		for(var i=particulePool.particules.length;i--;)
 			zbuffer.push({
-				z : (Math.floor(particulePool.particules[i].x)+0.5) * this.u.z + (Math.floor(particulePool.particules[i].y)+0.5) * this.v.z + particulePool.particules[i].h,
+				z : (Math.floor(particulePool.particules[i].x)+0.5) * this.u.z + (Math.floor(particulePool.particules[i].y)+0.5) * this.v.z + 0.3,//particulePool.particules[i].h,
 				trueZ : particulePool.particules[i].x * this.u.z + particulePool.particules[i].y * this.v.z,
 				type : 'particule',
 				entity : particulePool.particules[i]
@@ -135,7 +135,7 @@ var renderer = new (function( canvas ){
 		// shake
 
 		if( shakeLvl ){
-			var g = ( tShake -- ) / 30
+			var g = ( tShake -- ) / 25
 			this.ctx.translate( Math.sin( g * Math.PI * 5 + 4 ) * g * shakeLvl , Math.sin( g * Math.PI * 5 ) * g * shakeLvl  )
 			if( g < 0 )
 				shakeLvl = 0

@@ -3,6 +3,7 @@ var spartanPool=new (function(){
 	this.spartans = []
 
 	var spartanVelocity = 0.02
+	var spawnDelay = 300
 
 	this.spawnPoints = [
 		{
@@ -70,10 +71,14 @@ var spartanPool=new (function(){
 
 		}
 
+		if( k% 100 == 0 )
+			spawnDelay = Math.max( 8 , spawnDelay * 0.93 - 5 ) | 0
 
 		// spawn
-		if( k % 300 == 0 )
+		if( k % spawnDelay == 0 )
 			this.spawnSpartan()
+			
+		
 
 	}
 

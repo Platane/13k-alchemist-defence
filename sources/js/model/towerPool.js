@@ -29,7 +29,7 @@ var towerPool=new (function(){
 
 
 		// determine a target
-		var rad = dataTower[ tower.type ].radiusSq + map.get( tower.x , tower.y ).h * map.get( tower.x , tower.y ).h
+		var rad = dataTower[ tower.type ].radiusSq + map.get( tower.x , tower.y ).h * map.get( tower.x , tower.y ).h * 0.3
 		var target,tx,ty
 		for( var i=0;i<spartanPool.spartans.length;i++ ){
 
@@ -45,7 +45,7 @@ var towerPool=new (function(){
 				break
 		}
 
-		if( !target )
+		if( i>=spartanPool.spartans.length )
 			return
 
 		switch( dataTower[ tower.type ].fireClass ){
@@ -74,7 +74,7 @@ var towerPool=new (function(){
 						return
 				}
 
-				particulePool.add( tower.x + 0.5 , tower.y + 0.5 , tx , ty , null , function(){
+				particulePool.add( tower.x + 0.5 , tower.y + 0.5 , tx , ty , tower.type , function(){
 
 					target.health -= dataTower[ tower.type ].damage
 
@@ -84,29 +84,6 @@ var towerPool=new (function(){
 
 				})
 			break
-
-			case 'pull' :
-
-				for( var i=0;i<spartanPool.spartans.length;i++ ){
-
-					target = spartanPool.spartans[ i ]
-
-					if( target.x |0 == tower.x ){
-
-						var sens = target.y - tower.y > 0 ? 1 : -1
-
-						var x = target.x|0
-
-						for( var y = 0; y<3 ; y ++ ){
-							var y = target.y|0 + y*sens
-							if( mat.get( x , y ).h > 1 )
-								target.path = this.alter ( map.aStar( target.x|0 , target.y|0 + y*sens  ) , 0.1 + Math.random() * 0.8 , 0.1 + Math.random() * 0.8 )
-
-
-					}
-						}
-				}
-
 
 
 		}

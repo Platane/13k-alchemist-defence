@@ -7,15 +7,25 @@
  	width:40px;
  	height:40px;
  	padding:20px;
- 	background: #aaa;
  }
  </style>
 
-<canvas id="canvas" width="1080" height="720"></canvas>
+<canvas id="canvas" width="1080" height="720" style="display:none"></canvas>
 <div id="menu" style="border:solid 1px #333;position:absolute;top:10px;right:10px"></div>
-<canvas id="canvas2" width="200" height="200"></canvas>
-<img id="spartan" src="assets/spartan.gif"></canvas>
-<span id="console"></span>
+<div>
+	<p>Hello, nice to see you there.</p>
+	<p>Here is the plot, let's say you are a alchimist that masterize the power of combining elements.</p>
+	<p>Such a power draws attention, an army of spartans are walking toward you.</p>
+	<p>Fortunately alchimy will help you to pull them back, use your power to build tower to destroy them</p>
+	<br/>
+	<p>So in short, it's a tower defence. Drag elements from the panel on the right to the map to build a tower which will automatically shoots at ennemy.</p>
+	<p>You can upgrade a tower by dragging some more elements on it ( or at least this was planned, it's currently very restricted)</p>
+	<p>Try to rotate the map by dragging it, it's pretty cool</p>
+	<p>That's pretty much all, as you can see the game lack of some core features, enjoy as much as you can</p>
+
+	<h1><a href="#" onclick="launch()">go</a></h1>
+</div>
+
 
 <script src="data/towers.js"></script>
 <script src="data/levels.js"></script>

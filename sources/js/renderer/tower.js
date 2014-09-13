@@ -1,6 +1,21 @@
 renderer.renderTower = function(x,y,h,entity,z){
 
-	this.ctx.fillStyle= '#'+( 1221313 + (x*x*17%131)*12121 + (y*y*y%127)*123121  + x * 1231 + y * 421 ).toString(16).substr(0,6)
+
+	switch( entity.type ){
+		case "f" :
+			this.ctx.fillStyle= '#DD5616'
+		break
+		case "ff" :
+			this.ctx.fillStyle= '#DD1D15'
+		break
+		case "e" :
+			this.ctx.fillStyle= '#94330D'
+		break
+		case "ee" :
+			this.ctx.fillStyle= '#57230F'
+		break
+	}
+
 	
 	var v = ((1-z)*255)<<0
 	this.ctx.strokeStyle= 'rgb('+ v + ','+ v + ','+ v + ')'
@@ -10,7 +25,8 @@ renderer.renderTower = function(x,y,h,entity,z){
 	h*=0.23
 	x-=map.width/2
 	y-=map.height/2
-	var d=0.2,k=0.6
+	var d=0.2 * ( 0.6 + 0.4 * Math.sin( (1-Math.min(   dataTower[entity.type].reload - entity.r  , 8 )/8)  * Math.PI * 2 + Math.PI/2 ) )  ,
+		k=0.6
 
 	var faces = []
 

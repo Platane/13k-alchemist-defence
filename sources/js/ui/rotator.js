@@ -35,10 +35,6 @@ var mouseup = function(e){
 
 	angleTarget = normalizeAngle( Math.round( ( renderer.angle - Math.PI/4 )/ (Math.PI/2) ) * (Math.PI/2) + Math.PI/4 )
 
-	/*
-	if( Math.abs( angleTarget - renderer.angle ) > Math.PI )
-		angleTarget -= Math.PI*2
-	*/
 	cancelCycle = false
 
 	cycle()

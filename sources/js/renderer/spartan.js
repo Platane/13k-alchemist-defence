@@ -26,9 +26,17 @@ renderer.renderSpartan = function(entity,z,t){
 
 
 	this.ctx.beginPath()
-	this.ctx.arc( tmp.x , tmp.y , this.tileSize/10 + entity.shake , 0 ,  Math.PI*2 )
-	this.ctx.fillStyle= '#'+( (entity.stamp+1)*11111111111111 ).toString(16).substr(0,6)
+	this.ctx.arc( tmp.x , tmp.y , 6 + entity.shake , 0 ,  Math.PI*2 )
+	this.ctx.fillStyle= '#555'
 	this.ctx.fill()
 
+	this.ctx.beginPath()
+	this.ctx.moveTo( tmp.x-2 ,  tmp.y - 4 )
+	this.ctx.lineTo( tmp.x-5 ,  tmp.y - 16  )
+	this.ctx.lineTo( tmp.x+5 ,  tmp.y - 16  )
+	this.ctx.lineTo( tmp.x+2 ,  tmp.y - 4 )
+	this.ctx.lineTo( tmp.x-2 ,  tmp.y - 4 )
+	this.ctx.fillStyle= '#884AE5'
+	this.ctx.fill()
 
 }
