@@ -1,9 +1,9 @@
-13k-alchemist-defence
+alchemist defence
 =====================
 
+![the game]( http://platane.github.io/13k-alchemist-defence/images/global.png )
 
-
-I made this for the http://js13kgames.com/ challenge.
+I made this for the [js13kgames](http://js13kgames.com/) challenge.
 
 [You can play it here](http://platane.github.io/13k-alchemist-defence/sources/app.html)
 
